@@ -18,4 +18,7 @@ class Article(models.Model):
     HaoLuo = models.TextField()
     is_backed_up = models.BooleanField()
     
+    def __str__(self):
+        return self.title
+    
     
