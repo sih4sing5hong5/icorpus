@@ -1,0 +1,11 @@
+{% if article %}
+    <ul>
+        <li>{{ article.title }}</li>
+        <li>{{ article.date }}</li>
+        <li>{{ article.content }}</li>
+        <li>{{ article.JiaoLuo }}</li>
+        <li>{{ article.title }}</li>
+    </ul>
+{% else %}
+    <p>No article are available.</p>
+{% endif %}
