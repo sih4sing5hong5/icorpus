@@ -12,22 +12,25 @@ with open('data/article_frank.txt', 'r', encoding="UTF-8") as f:
                 l2 = list[8].split('\'')
                 l3 = l2[1].split(',')
                 l4 = list[11].split('\'')
-                Article.objects.create(title=l[1], 
-                    title_translation=list[1],
+                Article.objects.create(
+#					id=list[0].split(',')[0],
                     date=date(int(list[2]), int(list[3]), int(list[6])),
-                    content=list[4],
-                    origin_content=list[5],
-                    assign_name=list[7],
                     category=l2[0],
-                    status_m=l3[1],
-                    status_p=l3[2],
-                    status_t=l3[3],
-                    status_f=l3[4],
+                    origin_title=l[1].replace(' ',''),
+                    origin_content=list[5],
+					title=l[1], 
+                    content=list[4],
+                    title_translation=list[1],
+#                    assign_name=list[7],
+#                    status_m=l3[1],
+#                    status_p=l3[2],
+#                    status_t=l3[3],
+#                    status_f=l3[4],
                     TaiLuo=l2[2],
                     JiaoLuo=list[9],
-                    TongYong=list[10],
+#                    TongYong=list[10],
                     HaoLuo=l4[0],
-                    is_backed_up=int(l4[1][2:-1])
+#                    is_backed_up=int(l4[1][2:-1])
                     )
             except ValueError:
                 print(line)
