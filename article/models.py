@@ -13,7 +13,7 @@ class Article(models.Model):
 #	status_p = models.SmallIntegerField()
 #	status_t = models.SmallIntegerField()
 #	status_f = models.SmallIntegerField()
-	title_translation = models.CharField(max_length=255)
+	title_translation = models.CharField(blank=True,max_length=255)
 	TaiLuo = models.TextField(blank=True)
 	JiaoLuo = models.TextField(blank=True)
 #	TongYong = models.TextField(blank=True)
