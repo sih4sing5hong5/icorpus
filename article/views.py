@@ -28,7 +28,7 @@ def edit(request,pk):
 			return HttpResponseRedirect('/thanks/') # Redirect after POST
 	else:
 		a=Article.objects.get(pk=2886)
-		form = ArticleForm(request.POST, instance=a) # An unbound form
+		form = ArticleForm(instance=a) # An unbound form
 #		form = ArticleForm(a) # An unbound form
 #		print(form.title)
 #		form.title='@@'
