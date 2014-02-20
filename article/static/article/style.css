@@ -2,3 +2,37 @@ td
 {
 	color: blue;
 }
+textarea
+{
+	  overflow-x: scroll;
+	  overflow-y: hidden;
+	  width: 100%;
+	  height: 10000px;
+	  white-space: nowrap;
+	  
+}
+table
+{
+	width:100%;
+}
+
+td.行號 
+{
+	width:2em;
+}
+
+
+textarea{
+	background-image:url('橫條.jpg');
+	background-repeat:repeat;
+	line-height:20px;
+}
+#轉
+{
+	overflow-y:scroll;
+	height: 700px;
+}
+
+.penn5khua3 {width:50%; padding:0;}
+
+
