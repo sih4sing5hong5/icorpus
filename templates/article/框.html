@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}華語台語雙語語料庫系統{% endblock %}</title>
+    {% block extrahead %}{% endblock %}
+    <link rel="stylesheet" href="/media/css/blog.css" type="text/css" media="screen" charset="utf-8" />
+
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+    <div id="sidebar"> {% block sidebar %}{% endblock %} </div>
+
+    <div id="container">
+
+        <!-- MENU -->
+
+        <div id="menu">
+            {% block nav-global %}
+
+                <h3>
+	                <a href="{% url '首頁' %}">華語台語雙語語料庫系統</a>
+                </h3>
+
+            {% endblock %}
+        </div>
+	<br/>
+        <!-- CONTENT -->
+
+        <div id="content">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+</body>
+</html>

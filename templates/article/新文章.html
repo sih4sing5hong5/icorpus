@@ -1,15 +1,21 @@
-{% if article %}
-	<form action="" method="post">{% csrf_token %}
-	{{ article.as_p }}
-    {% for 這馬 in article %}
-        <div class="fieldWrapper">
-            {{ 這馬.errors }}
-            {{ 這馬.label_tag }}: {{ 這馬 }}
-            {% if 這馬.errors %}<p>{{ 這馬.errors }}</p></div>{% endif %}
-        </div>
-    {% endfor %}
-	<input type="submit" value="Submit" />
-	</form>
-{% else %}
-    <p>No article are available.</p>
-{% endif %}
+{% extends "article/框.html" %}
+
+{% block content %}
+	{% if article %}
+		<form action="" method="post">{% csrf_token %}
+		{{ article.as_p }}
+		<!-- 
+	    {% for 這馬 in article %}
+	        <div class="fieldWrapper">
+	            {{ 這馬.errors }}
+	            {{ 這馬.label_tag }}: {{ 這馬 }}
+	            {% if 這馬.errors %}<p>{{ 這馬.errors }}</p></div>{% endif %}
+	        </div>
+	    {% endfor %}
+	    --->
+		<input type="submit" value="Submit" />
+		</form>
+	{% else %}
+	    <p>No article are available.</p>
+	{% endif %}
+{% endblock %}

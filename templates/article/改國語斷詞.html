@@ -1,36 +1,40 @@
-{% if article %}
-<form action="." method="post">
-	{% csrf_token %}
-	<table>
-		<tr>
-			<td>國語原文
-			</td>
-			<td>國語斷詞
-			</td>
-		</tr>
-		<tr>
-			<td>{% if article.origin_title.errors %}
-				<p>{{ article.origin_title.errors }}</p>{% endif %}
-				{{ article.origin_title }}
-			</td>
-			<td>{% if article.title.errors %}
-				<p>{{ article.title.errors }}</p>{% endif %} 
-				{{ article.title }}
-			</td>
-		</tr>
-		<tr>
-			<td>{% if article.origin_content.errors %}
-				<p>{{ article.origin_content.errors }}</p>{% endif %}
-				{{ article.origin_content }}
-			</td>
-			<td>{% if article.content.errors %}
-				<p>{{ article.content.errors }}</p>{% endif %}
-				{{ article.content }}
-			</td>
-		</tr>
-	</table>
-	<input type="submit" value="確定" />
-</form>
-{% else %}
-<p>No article are available.</p>
-{% endif %}
+{% extends "article/框.html" %}
+
+{% block content %}
+	{% if article %}
+	<form action="." method="post">
+		{% csrf_token %}
+		<table>
+			<tr>
+				<td>國語原文
+				</td>
+				<td>國語斷詞
+				</td>
+			</tr>
+			<tr>
+				<td>{% if article.origin_title.errors %}
+					<p>{{ article.origin_title.errors }}</p>{% endif %}
+					{{ article.origin_title }}
+				</td>
+				<td>{% if article.title.errors %}
+					<p>{{ article.title.errors }}</p>{% endif %} 
+					{{ article.title }}
+				</td>
+			</tr>
+			<tr>
+				<td>{% if article.origin_content.errors %}
+					<p>{{ article.origin_content.errors }}</p>{% endif %}
+					{{ article.origin_content }}
+				</td>
+				<td>{% if article.content.errors %}
+					<p>{{ article.content.errors }}</p>{% endif %}
+					{{ article.content }}
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="確定" />
+	</form>
+	{% else %}
+	<p>No article are available.</p>
+	{% endif %}
+{% endblock %}

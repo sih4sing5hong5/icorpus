@@ -13,7 +13,7 @@ def index(request):
 	latest_poll_list = Article.objects.order_by('-date')[:50]
 # 	output = ', '.join([p.title for p in latest_poll_list])
 # 	return HttpResponse(output)
-	template = loader.get_template('article/index.html')
+	template = loader.get_template('article/全部文章.html')
 	context = RequestContext(request, {
 		'latest_poll_list': latest_poll_list,
 	})

@@ -2,22 +2,23 @@
 <table>
 	<tr>
 		<td>{{ article.category }}</td>
-		<td colspan="2">{{ article.date }}</td>
+		<!-- <td colspan="2">{{ article.date }}</td> -->
+		<td>{{ article.date }}</td>
 	</tr>
 	<tr>
-		<td>國語原文</td>
+		<!-- <td>國語原文</td> -->
 		<td>國語斷詞</td>
 		<td>閩南語翻譯</td>
 	</tr>
 	<tr>
-		<td>{{ article.origin_title }}</td>
+		<!-- <td>{{ article.origin_title }}</td> -->
 		<td>{{ article.title }}</td>
 		<td>{{ article.title_translation }}</td>
 	</tr>
 	<tr>
-		<td>{{ article.origin_content }}</td>
-		<td>{{ article.content }}</td>
-		<td>{{ article.JiaoLuo }} {{ article.TaiLuo }} {{ article.HaoLuo }}</td>
+		<!-- <td>{{ article.origin_content|linebreaksbr }}</td> -->
+		<td>{{ article.content|linebreaksbr }}</td>
+		<td>{{ article.JiaoLuo|linebreaksbr }} {{ article.TaiLuo|linebreaksbr }} {{ article.HaoLuo|linebreaksbr }}</td>
 	</tr>
 </table>
 {% else %}

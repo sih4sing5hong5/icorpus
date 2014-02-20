@@ -4,7 +4,7 @@ from article import views
 
 urlpatterns = patterns('',
     # ex: /polls/
-    url(r'^$', views.index, name='index'),
+    url(r'^$', views.index, name='首頁'),
     # ex: /polls/5/
     url(r'^(?P<pk>\d+)/看文章/$', views.看文章.as_view(), name='看文章'),
     url(r'^(?P<pk>\d+)/全改/$', views.全改, name='全改'),

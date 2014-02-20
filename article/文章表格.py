@@ -13,7 +13,7 @@ class 加新文章表格(ModelForm):
 		labels = {
 			'category':'分類',
             'origin_title': '原始標題',
-            'origin_content': '原始標題',
+            'origin_content': '原始內容',
         }
 		help_texts = {
             'origin_title': '免斷詞',
