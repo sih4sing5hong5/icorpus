@@ -3,7 +3,9 @@
     {% for poll in latest_poll_list %}
         <li><a href="{% url 'results2' poll.id %}">{{ poll.title }}</a>
         {{ poll.date }}</li>
-        <li><a href="{% url 'edit' poll.id %}">{{ poll.title }}</a>
+        <li><a href="{% url 'edit' poll.id %}">edit {{ poll.title }}</a>
+        {{ poll.date }}</li>
+        <li><a href="{% url 'editClass' poll.id %}">editclass {{ poll.title }}</a>
         {{ poll.date }}</li>
     {% endfor %}
     </ul>

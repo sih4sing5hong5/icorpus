@@ -6,6 +6,7 @@ from django.views import generic
 from article.models import Article
 from article.文章表格 import ArticleForm
 from django.shortcuts import get_object_or_404
+from django.http.response import HttpResponseRedirect
 
 def index(request):
 	latest_poll_list = Article.objects.order_by('-date')[:50]
@@ -21,22 +22,35 @@ def edit(request,pk):
 	if request.method == 'POST': # If the form has been submitted...
 		form = ArticleForm(request.POST) # A form bound to the POST data
 		if form.is_valid(): # All validation rules pass
+			article = Article.objects.get(pk=pk)
+			form = ArticleForm(request.POST, instance = article)
+			form.save()
+# 			return redirect('/')
 			# Process the data in form.cleaned_data
 			# ...
 #			Article(form)
-			return HttpResponseRedirect('/thanks/') # Redirect after POST
+			return HttpResponseRedirect('/article/') # Redirect after POST
 	else:
-		a=Article.objects.get(pk=pk)
-		form = ArticleForm(instance=a) # An unbound form
+		article=Article.objects.get(pk=pk)
+		form = ArticleForm(instance=article) # An unbound form
 #		form = ArticleForm(a) # An unbound form
 #		print(form.title)
 #		form.title='@@'
-		print(form)
-		print(a)
+# 		print(form)
+# 		print(article)
 
 	return render(request, 'article/edit.html', {
-		'form': form,
+		'article': form,
 	})
+class EditView(generic.DetailView):
+	model = Article
+	form_class = ArticleForm
+	template_name = 'article/edit.html'
+
+# 	def get_object(self):
+# 		article=super(EditView,self).get_object()
+# 		articleForm=ArticleForm(instance=article)
+# 		return article
 # Create your views here.
 def detail(request, poll_id):
 	return HttpResponse("You're looking at poll %s." % poll_id)
