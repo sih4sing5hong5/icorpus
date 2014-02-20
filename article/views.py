@@ -17,7 +17,6 @@ def index(request):
 	})
 	return HttpResponse(template.render(context))
 
-
 def edit(request,pk):
 	if request.method == 'POST': # If the form has been submitted...
 		form = ArticleForm(request.POST) # A form bound to the POST data
