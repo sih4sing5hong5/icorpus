@@ -1,0 +1,8 @@
+{% if article %}
+	<form action="." method="post">{% csrf_token %}
+	{{ article.as_p }}
+	<input type="submit" value="Submit" />
+	</form>
+{% else %}
+    <p>No article are available.</p>
+{% endif %}

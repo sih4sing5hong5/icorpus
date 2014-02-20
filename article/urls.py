@@ -6,8 +6,11 @@ urlpatterns = patterns('',
     # ex: /polls/
     url(r'^$', views.index, name='index'),
     # ex: /polls/5/
-    url(r'^(?P<pk>\d+)/edit/$', views.edit, name='改'),
-    url(r'^(?P<pk>\d+)/看/$', views.Results.as_view(), name='看'),
+    url(r'^(?P<pk>\d+)/看文章/$', views.看文章.as_view(), name='看文章'),
+    url(r'^(?P<pk>\d+)/全改/$', views.全改, name='全改'),
+    url(r'^(?P<pk>\d+)/加新文章', views.加新文章, name='加新文章'),
+    url(r'^(?P<pk>\d+)/改國語斷詞/$', views.改國語斷詞, name='改國語斷詞'),
+    url(r'^(?P<pk>\d+)/改閩南語翻譯/$', views.改閩南語翻譯, name='改閩南語翻譯'),
     
 #     # ex: /polls/5/vote/
 #     url(r'^(?P<poll_id>\d+)/$', views.detail, name='detail'),
