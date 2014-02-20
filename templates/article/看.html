@@ -1,11 +1,27 @@
 {% if article %}
-    <ul>
-        <li>{{ article.title }}</li>
-        <li>{{ article.date }}</li>
-        <li>{{ article.content }}</li>
-        <li>{{ article.JiaoLuo }}</li>
-        <li>{{ article.title }}</li>
-    </ul>
+    <table>
+    	<tr><td>
+        {{ article.category }}
+        </td><td colspan="2">
+        {{ article.date }}
+        </td></tr>
+        <tr><td>
+        {{ article.origin_title }}
+        </td><td>
+        {{ article.title }}
+        </td><td>
+        {{ article.title_translation }}
+        </td></tr>
+        <tr><td>
+        {{ article.origin_content }}
+        </td><td>
+        {{ article.content }}
+        </td><td>
+        {{ article.JiaoLuo }}
+        {{ article.TaiLuo }}
+        {{ article.HaoLuo }}
+        </td></tr>
+    </table>
 {% else %}
     <p>No article are available.</p>
 {% endif %}

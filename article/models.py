@@ -1,7 +1,7 @@
 from django.db import models
 
 class Article(models.Model):
-	date = models.DateField(auto_now_add=True)
+	date = models.DateField(auto_now=True)
 	category = models.CharField(max_length=100)
 	origin_title = models.CharField(max_length=255)
 	origin_content = models.TextField()

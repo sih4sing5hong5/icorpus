@@ -7,7 +7,7 @@ urlpatterns = patterns('',
     url(r'^$', views.index, name='index'),
     # ex: /polls/5/
     url(r'^(?P<pk>\d+)/edit/$', views.edit, name='改'),
-    url(r'^(?P<pk>\d+)/results2/$', views.Results.as_view(), name='看'),
+    url(r'^(?P<pk>\d+)/看/$', views.Results.as_view(), name='看'),
     
 #     # ex: /polls/5/vote/
 #     url(r'^(?P<poll_id>\d+)/$', views.detail, name='detail'),
