@@ -1,7 +1,33 @@
 {% if article %}
 	<form action="." method="post">{% csrf_token %}
-	{{ article.as_p }}
-	<input type="submit" value="Submit" />
+	<table>
+		<tr>
+			<td>國語斷詞
+			</td>
+			<td>閩南語翻譯</td>
+		</tr>
+		<tr>
+			<td>{% if article.title.errors %}
+				<p>{{ article.title.errors }}</p>{% endif %} 
+				{{ article.title }}
+			</td>
+			<td>{% if article.title_translation.errors %}
+				<p>{{ article.title_translation.errors }}</p>{% endif %}
+				{{ article.title_translation }}
+			</td>
+		</tr>
+		<tr>
+			<td>{% if article.content.errors %}
+				<p>{{ article.content.errors }}</p>{% endif %}
+				{{ article.content }}
+			</td>
+			<td>{% if article.JiaoLuo.errors %}
+				<p>{{ article.JiaoLuo.errors }}</p>{% endif %}
+				{{ article.JiaoLuo }}
+			</td>
+		</tr>
+	</table>
+	<input type="submit" value="確定" />
 	</form>
 {% else %}
     <p>No article are available.</p>

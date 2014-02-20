@@ -25,12 +25,14 @@ class 看文章(generic.DetailView):
 
 def 加新文章(request):
 	if request.method == 'POST':  # If the form has been submitted...
-		form = 文章全部表格(request.POST)  # A form bound to the POST data
-		if form.is_valid():
-			form.save()
+		文章表格 = 加新文章表格(request.POST)  # A form bound to the POST data
+		if 文章表格.is_valid():
+			文章表格.save()
 			return HttpResponseRedirect('/article/')  # Redirect after POST
+	else:
+		文章表格=加新文章表格()
 	return render(request, 'article/新文章.html', {
-		'article': 加新文章表格(),
+		'article': 文章表格,
 	})
 
 def 全改(request, pk):
@@ -47,9 +49,10 @@ def 編輯(request, pk, 網址, 表格):
 		if form.is_valid():  # All validation rules pass
 			form.save()
 			return HttpResponseRedirect('/article/')  # Redirect after POST
-	article = Article.objects.get(pk=pk)
-	form = 表格(instance=article)
-
+	else:
+		article = Article.objects.get(pk=pk)
+		form = 表格(instance=article)
+	
 	return render(request, 網址, {
 		'article': form,
 	})

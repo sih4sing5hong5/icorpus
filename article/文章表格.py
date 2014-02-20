@@ -28,10 +28,10 @@ class 加新文章表格(ModelForm):
 class 改國語斷詞表格(ModelForm):
 	class Meta:
 		model = Article
-		fields = ['origin_title', 'origin_content', 'title', 'content']
+		fields = ['origin_title', 'title', 'origin_content', 'content']
 
 
 class 改閩南語翻譯表格(ModelForm):
 	class Meta:
 		model = Article
-		fields = ['title', 'content', 'title_translation', 'JiaoLuo']
+		fields = ['title', 'title_translation', 'content', 'JiaoLuo']
