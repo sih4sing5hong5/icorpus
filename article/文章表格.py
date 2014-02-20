@@ -6,12 +6,32 @@ class 文章全部表格(ModelForm):
 		model = Article
 		fields = '__all__'
 
+class 加新文章表格(ModelForm):
+	class Meta:
+		model = Article
+		fields = ['category', 'origin_title', 'origin_content', ]
+		labels = {
+			'category':'分類',
+            'origin_title': '原始標題',
+            'origin_content': '原始標題',
+        }
+		help_texts = {
+            'origin_title': '免斷詞',
+            'origin_content': '免斷詞',
+        }
+		error_messages = {
+            'origin_title': {
+                'max_length': ("This writer's name is too long."),
+            },
+        }
+		
 class 改國語斷詞表格(ModelForm):
 	class Meta:
 		model = Article
-		fields = ['category', 'title', 'content']
+		fields = ['origin_title', 'origin_content', 'title', 'content']
+
 
 class 改閩南語翻譯表格(ModelForm):
 	class Meta:
 		model = Article
-		fields = ['category', 'title']
+		fields = ['title', 'content', 'title_translation', 'JiaoLuo']
