@@ -4,7 +4,8 @@
     <title>{% block title %}華語台語雙語語料庫系統{% endblock %}</title>
     {% block extrahead %}{% endblock %}
     <link rel="stylesheet" href="/media/css/blog.css" type="text/css" media="screen" charset="utf-8" />
-
+	{% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'article/style.css' %}" />
 </head>
 
 <body>
