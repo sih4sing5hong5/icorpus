@@ -30,37 +30,18 @@ def edit(request,pk):
 			# ...
 #			Article(form)
 			return HttpResponseRedirect('/article/') # Redirect after POST
-	else:
-		article=Article.objects.get(pk=pk)
-		form = ArticleForm(instance=article) # An unbound form
-#		form = ArticleForm(a) # An unbound form
-#		print(form.title)
-#		form.title='@@'
-# 		print(form)
-# 		print(article)
+	article=Article.objects.get(pk=pk)
+	form = ArticleForm(instance=article)
 
-	return render(request, 'article/edit.html', {
+	return render(request, 'article/改.html', {
 		'article': form,
 	})
+# 無法度用form＠＠
 class EditView(generic.DetailView):
 	model = Article
 	form_class = ArticleForm
-	template_name = 'article/edit.html'
-
-# 	def get_object(self):
-# 		article=super(EditView,self).get_object()
-# 		articleForm=ArticleForm(instance=article)
-# 		return article
-# Create your views here.
-def detail(request, poll_id):
-	return HttpResponse("You're looking at poll %s." % poll_id)
-
-def results(request, poll_id):
-	return HttpResponse("You're looking at the results of poll %s." % poll_id)
+	template_name = 'article/改.html'
 
 class Results(generic.DetailView):
 	model=Article
-	template_name = 'article/resultz.html'
-
-def vote(request, poll_id):
-	return HttpResponse("You're voting on poll %s." % poll_id)
+	template_name = 'article/看.html'
