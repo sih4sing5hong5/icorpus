@@ -37,6 +37,8 @@ def 加新文章(request):
 
 def 全改(request, pk):
 	return 編輯(request, pk, 'article/全改.html', 文章全部表格)
+def 改分類佮原文(request, pk):
+	return 編輯(request, pk, 'article/新文章.html', 加新文章表格)
 def 改國語斷詞(request, pk):
 	return 編輯(request, pk, 'article/改國語斷詞.html', 改國語斷詞表格)
 def 改閩南語翻譯(request, pk):
