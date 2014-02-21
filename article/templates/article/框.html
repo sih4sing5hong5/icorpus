@@ -4,11 +4,11 @@
     <title>{% block title %}華語台語雙語語料庫系統{% endblock %}</title>
     {% block extrahead %}{% endblock %}
     {% load staticfiles %}
+	<link rel="stylesheet" type="text/css" href="{% static 'article/版面.css' %}" />
 	<link rel="stylesheet" type="text/css" href="{% static 'article/style.css' %}" />
 </head>
 
 <body>
-
     <!-- SIDEBAR -->
     <div id="sidebar"> {% block sidebar %}{% endblock %} </div>
 
@@ -18,11 +18,9 @@
 
         <div id="menu">
             {% block nav-global %}
-
-                <h3>
-	                <a href="{% url '首頁' %}">華語台語雙語語料庫系統</a>
-                </h3>
-
+	                
+		<span class="英文">iCorpus</span>
+		<span>華語台語雙語語料庫系統 | <a href="{% url '首頁' %}">回頭頁</a></span>
             {% endblock %}
         </div>
 	<br/>
