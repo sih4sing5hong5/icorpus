@@ -4,27 +4,37 @@
 	{% if article %}
 	<form action="." method="post">
 		{% csrf_token %}
-		<table>
+		<table class="資料">
 			<tr>
-				<td>國語原文
+				<td class='行號'></td>
+				<td class='倒爿'>國語原文
 				</td>
-				<td>國語斷詞
+				<td class='行號'></td>
+				<td class='正爿'>國語斷詞
 				</td>
 			</tr>
 			<tr>
+				<td class='行號'></td>
 				<td>{% if article.origin_title.errors %}
 					<p>{{ article.origin_title.errors }}</p>{% endif %}
 					{{ article.origin_title }}
 				</td>
+				<td class='行號'></td>
 				<td>{% if article.title.errors %}
 					<p>{{ article.title.errors }}</p>{% endif %} 
 					{{ article.title }}
 				</td>
 			</tr>
 			<tr>
+				<td class='行號'>
+					{% include 'article/行號.html' %}
+				</td>
 				<td>{% if article.origin_content.errors %}
 					<p>{{ article.origin_content.errors }}</p>{% endif %}
 					{{ article.origin_content }}
+				</td>
+				<td class='行號'>
+					{% include 'article/行號.html' %}
 				</td>
 				<td>{% if article.content.errors %}
 					<p>{{ article.content.errors }}</p>{% endif %}
