@@ -50,12 +50,12 @@ def get_lcs(direct, a, i, j):
 		else:  
 			get_lcs_inner(direct, a, i, j - 1, lcs)  
 	  
-	if __name__ == "__main__":  
-		a = "abcbdab"  
-		b = "bdcaba"  
-		  
-		l, direct = lcs_len(a, b)  
-		lcs = get_lcs(direct, a, len(a) - 1, len(b) - 1)  
-		  
-		print "the length of lcs is:", l[len(a)][len(b)]  
-		print "one of the lcs:", "".join(lcs)  
+if __name__ == "__main__":  
+	a = "abcbdab"  
+	b = "bdcaba"  
+	  
+	l, direct = lcs_len(a, b)  
+	lcs = get_lcs(direct, a, len(a) - 1, len(b) - 1)  
+	  
+	print("the length of lcs is:", l[len(a)][len(b)])  
+	print("one of the lcs:", "".join(lcs))  
