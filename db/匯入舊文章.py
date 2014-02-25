@@ -1,11 +1,11 @@
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
-from article.models import 何澤政文章
+from 文章.models import 何澤政文章
 from datetime import date
 from dateutil.relativedelta import relativedelta
 from db.lcs import lcs_len
 
-class insert_article:
+class insert_文章:
 	def tok8_tsu1_liau7(self):
 		tsu1_liau7 = []
 		with open('db/data/article_frank.txt', 'r', encoding = "UTF-8") as f:
@@ -113,6 +113,6 @@ class insert_article:
 			資料.append((date(int(日期[:4]),int(日期[4:6]),int(日期[6:8])), 標題))
 		return 資料
 
-icorpus_article = insert_article()
-icorpus_article.tsu2_li2()
+icorpus_文章 = insert_文章()
+icorpus_文章.tsu2_li2()
 sdfap

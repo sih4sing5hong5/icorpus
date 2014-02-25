@@ -1,0 +1,50 @@
+{% extends "文章/框.html" %}
+
+{% block 斷詞內容 %}
+	{% if 文章 %}
+		<form action="." method="post">{% csrf_token %}
+		<table class="資料">
+			<tr>
+				<td class='行號'></td>
+				<td class='倒爿'>國語斷詞
+				</td>
+				<td class='行號'></td>
+				<td class='正爿'>閩南語翻譯
+				</td>
+			</tr>
+			<tr>
+				<td class='行號'></td>
+				<td>{% if 文章.斷詞標題.errors %}
+					<p>{{ 文章.斷詞標題.errors }}</p>{% endif %} 
+					{{ 文章.斷詞標題 }}
+				</td>
+				<td class='行號'></td>
+				<td>{% if 文章.教羅標題.errors %}
+					<p>{{ 文章.教羅標題.errors }}</p>{% endif %}
+					{{ 文章.教羅標題 }}
+					<input type="submit" value="確定" />
+				</td>
+			</tr>
+			<tr>
+				<td class='行號'>
+					{% include '文章/行號.html' %}
+				</td>
+				<td>{% if 文章.斷詞內容.errors %}
+					<p>{{ 文章.斷詞內容.errors }}</p>{% endif %}
+					{{ 文章.斷詞內容 }}
+				</td>
+				<td class='行號'>
+					{% include '文章/行號.html' %}
+				</td>
+				<td>{% if 文章.教羅內容.errors %}
+					<p>{{ 文章.教羅內容.errors }}</p>{% endif %}
+					{{ 文章.教羅內容 }}
+				</td>
+			</tr>
+		</table>
+		<input type="submit" value="確定" />
+		</form>
+	{% else %}
+	    <p>No 文章 are available.</p>
+	{% endif %}
+{% endblock %}

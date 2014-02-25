@@ -1,6 +1,6 @@
 from django.conf.urls import patterns, url
 
-from article import views
+from 文章 import views
 
 urlpatterns = patterns('',
     # ex: /polls/

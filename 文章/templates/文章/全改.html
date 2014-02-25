@@ -1,12 +1,12 @@
-{% extends "article/框.html" %}
+{% extends "文章/框.html" %}
 
 {% block 斷詞內容 %}
-	{% if article %}
+	{% if 文章 %}
 		<form action="." method="post">{% csrf_token %}
-		{{ article.as_p }}
+		{{ 文章.as_p }}
 		<input type="submit" value="Submit" />
 		</form>
 	{% else %}
-	    <p>No article are available.</p>
+	    <p>No 文章 are available.</p>
 	{% endif %}
 {% endblock %}

@@ -1,7 +1,7 @@
 from django.forms import ModelForm
 from django.forms import Textarea
 from django.forms import Select
-from article.models import 何澤政文章
+from 文章.models import 何澤政文章
 
 class 文章全部表格(ModelForm):
 	class Meta:

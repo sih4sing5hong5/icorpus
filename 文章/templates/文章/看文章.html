@@ -1,11 +1,11 @@
-{% extends "article/框.html" %}
+{% extends "文章/框.html" %}
 
 {% block 斷詞內容 %}
 	{% if 何澤政文章 %}
 	<table>
 		<tr>
 			<td>{{ 何澤政文章.分類 }}</td>
-			<!-- <td colspan="2">{{ article.date }}</td> -->
+			<!-- <td colspan="2">{{ 文章.date }}</td> -->
 			<td>頭一擺翻譯時間：{{ 何澤政文章.頭一擺翻譯時間|date:"Y-m-d" }} ｜
 			上尾修改時間：{{ 何澤政文章.上尾修改時間|date:"Y-m-d" }}</td>
 		</tr>
@@ -15,12 +15,12 @@
 			<td>閩南語翻譯</td>
 		</tr>
 		<tr>
-			<!-- <td>{{ article.原本標題 }}</td> -->
+			<!-- <td>{{ 文章.原本標題 }}</td> -->
 			<td>{{ 何澤政文章.斷詞標題 }}</td>
 			<td>{{ 何澤政文章.教羅標題 }}</td>
 		</tr>
 		<tr>
-			<!-- <td>{{ article.原本內容|linebreaksbr }}</td> -->
+			<!-- <td>{{ 文章.原本內容|linebreaksbr }}</td> -->
 			<td>{{ 何澤政文章.斷詞內容|linebreaksbr }}</td>
 			<td>{{ 何澤政文章.教羅內容|linebreaksbr }}</td>
 		</tr>
