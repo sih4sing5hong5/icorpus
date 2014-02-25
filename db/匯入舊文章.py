@@ -50,9 +50,9 @@ class insert_文章:
 						print(line)
 					else:
 						tsu1_liau7.append((si7_教羅內容, id, datea, 分類,
-								原本標題.strip(), 原本內容.strip(),
-								斷詞標題.strip(), 斷詞內容.strip(),
-								教羅標題.strip(), 教羅內容.strip()))
+								self.正規化(原本標題), self.正規化(原本內容),
+								self.正規化(斷詞標題), self.正規化(斷詞內容),
+								self.正規化(教羅標題), self.正規化(教羅內容)))
 		return tsu1_liau7
 	def tsu2_li2(self):
 		tsu1_liau7 = sorted(self.tok8_tsu1_liau7(), key = lambda tsu1:tsu1[1])
@@ -72,9 +72,10 @@ class insert_文章:
 						推算的時間=查檔名的時間
 # 				else:
 # 					print(資料[4],'查無時間','編輯時間',資料[2],'推算的時間',推算的時間)
-				if 資料[4]<推算的時間:
-					推算的時間=資料[4]
+				if 資料[2]<推算的時間:
+					推算的時間=資料[2]
 				print('編輯',資料[2],'推算',推算的時間,'查檔名',查檔名的時間,資料[4],)
+# 				print('文章',資料[7],)
 				if 資料[4] == '鬼辣椒辣度破百萬男子嗆到送醫':
 					推算的時間 = date(2009, 3, 15)
 					
@@ -96,6 +97,8 @@ class insert_文章:
 						推算的時間 = 推算的時間 + relativedelta(days = 1)
 		  # 2008-11-6 7 7
 		  # 鬼辣椒 辣度 破百萬 男子 嗆到 送醫 2009-3-15
+	def 正規化(self,語句):
+		return 語句.strip().replace('\\r\\n','\\n').replace('\\n','\n')
 	def 揣時間(self,日期,標題):
 		上長=0
 		揀著=None
