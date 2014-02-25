@@ -1,6 +1,6 @@
 {% extends "article/框.html" %}
 
-{% block content %}
+{% block 斷詞內容 %}
 	{% if article %}
 	<form action="." method="post">
 		{% csrf_token %}
@@ -15,30 +15,30 @@
 			</tr>
 			<tr>
 				<td class='行號'></td>
-				<td>{% if article.origin_title.errors %}
-					<p>{{ article.origin_title.errors }}</p>{% endif %}
-					{{ article.origin_title }}
+				<td>{% if article.原本標題.errors %}
+					<p>{{ article.原本標題.errors }}</p>{% endif %}
+					{{ article.原本標題 }}
 				</td>
 				<td class='行號'></td>
-				<td>{% if article.title.errors %}
-					<p>{{ article.title.errors }}</p>{% endif %} 
-					{{ article.title }}
+				<td>{% if article.斷詞標題.errors %}
+					<p>{{ article.斷詞標題.errors }}</p>{% endif %} 
+					{{ article.斷詞標題 }}
 				</td>
 			</tr>
 			<tr>
 				<td class='行號'>
 					{% include 'article/行號.html' %}
 				</td>
-				<td>{% if article.origin_content.errors %}
-					<p>{{ article.origin_content.errors }}</p>{% endif %}
-					{{ article.origin_content }}
+				<td>{% if article.原本內容.errors %}
+					<p>{{ article.原本內容.errors }}</p>{% endif %}
+					{{ article.原本內容 }}
 				</td>
 				<td class='行號'>
 					{% include 'article/行號.html' %}
 				</td>
-				<td>{% if article.content.errors %}
-					<p>{{ article.content.errors }}</p>{% endif %}
-					{{ article.content }}
+				<td>{% if article.斷詞內容.errors %}
+					<p>{{ article.斷詞內容.errors }}</p>{% endif %}
+					{{ article.斷詞內容 }}
 				</td>
 			</tr>
 		</table>

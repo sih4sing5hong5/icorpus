@@ -20,41 +20,41 @@ class insert_article:
 
 						id = int(list[0].split(',')[0])
 						datea = date(int(list[2]), int(list[3]), int(list[6]))
-						category = l2[0]
-						origin_title = l[1].replace(' ', '')
-						origin_content = list[5]
-						title = l[1]
-						content = list[4]
-						title_translation = list[1]
+						分類 = l2[0]
+						原本標題 = l[1].replace(' ', '')
+						原本內容 = list[5]
+						斷詞標題 = l[1]
+						斷詞內容 = list[4]
+						教羅標題 = list[1]
 		# 					assign_name=list[7],
 		# 					status_m=l3[1],
 		# 					status_p=l3[2],
 		# 					status_t=l3[3],
 		# 					status_f=l3[4],
 						TaiLuo = l2[2]
-						JiaoLuo = list[9]
+						教羅內容 = list[9]
 		# 					TongYong=list[10],
 						HaoLuo = l4[0]
-		# 				print(JiaoLuo)
+		# 				print(教羅內容)
 		# 				print(list)
-						si7_JiaoLuo = True
-						if JiaoLuo.strip() == '':
+						si7_教羅內容 = True
+						if 教羅內容.strip() == '':
 							if TaiLuo.strip() == '' and HaoLuo.strip() == '':
 								print('bo5')
 							elif TaiLuo.strip() == '' and HaoLuo.strip() != '':
-								si7_JiaoLuo = False
-								JiaoLuo = HaoLuo.strip()
+								si7_教羅內容 = False
+								教羅內容 = HaoLuo.strip()
 							elif TaiLuo.strip() != '' and HaoLuo.strip() == '':
-								JiaoLuo = TaiLuo
+								教羅內容 = TaiLuo
 							elif TaiLuo.strip() != '' and HaoLuo.strip() != '':
 								print('bo5 4')
 					except ValueError:
 						print(line)
 					else:
-						tsu1_liau7.append((si7_JiaoLuo, id, datea, category,
-								origin_title.strip(), origin_content.strip(),
-								title.strip(), content.strip(),
-								title_translation.strip(), JiaoLuo.strip()))
+						tsu1_liau7.append((si7_教羅內容, id, datea, 分類,
+								原本標題.strip(), 原本內容.strip(),
+								斷詞標題.strip(), 斷詞內容.strip(),
+								教羅標題.strip(), 教羅內容.strip()))
 		return tsu1_liau7
 	def tsu2_li2(self):
 		tsu1_liau7 = sorted(self.tok8_tsu1_liau7(), key = lambda tsu1:tsu1[1])
@@ -77,13 +77,13 @@ class insert_article:
 					
 				Article.objects.create(
 					date=資料[2],
-					category=資料[3],
-					origin_title=資料[4],
-					origin_content=資料[5],
-					title=資料[6],
-					content=資料[7],
-					title_translation=資料[8],
-					JiaoLuo=資料[9],)
+					分類=資料[3],
+					原本標題=資料[4],
+					原本內容=資料[5],
+					斷詞標題=資料[6],
+					斷詞內容=資料[7],
+					教羅標題=資料[8],
+					教羅內容=資料[9],)
 				cnt += 1
 				if cnt == 2:
 					cnt = 0

@@ -1,6 +1,6 @@
 {% extends "article/框.html" %}
 
-{% block content %}
+{% block 斷詞內容 %}
 	{% if article %}
 		<form action="" method="post">{% csrf_token %}
 		{{ article.as_p }}

@@ -1,6 +1,6 @@
 {% extends "article/框.html" %}
 
-{% block content %}
+{% block 斷詞內容 %}
 	<a href="{% url '加新文章' %}">加新文章</a>
 	        	
 	{% if latest_poll_list %}
@@ -8,8 +8,8 @@
 	    {% for poll in latest_poll_list %}
 	    	<tr>
 	    	<td>{{ poll.date|date:"Y-m-d" }}</td>
-	    	<td>{{ poll.category }}</td>
-	    	<td>{{ poll.origin_title }}</td>
+	    	<td>{{ poll.分類 }}</td>
+	    	<td>{{ poll.原本標題 }}</td>
 	        <td>
 	        	<a href="{% url '改分類佮原文' poll.id %}">改分類</a>
 	       	</td>

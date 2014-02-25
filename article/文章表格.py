@@ -26,40 +26,40 @@ class 文章全部表格(ModelForm):
 class 加新文章表格(ModelForm):
 	class Meta:
 		model = Article
-		fields = ['category', 'origin_title', 'origin_content', ]
+		fields = ['分類', '原本標題', '原本內容', ]
 		labels = {
-			'category':'分類',
-            'origin_title': '原始標題',
-            'origin_content': '原始內容',
+			'分類':'分類',
+            '原本標題': '原始標題',
+            '原本內容': '原始內容',
         }
 		help_texts = {
-            'origin_title': '免斷詞',
-            'origin_content': '免斷詞',
+            '原本標題': '免斷詞',
+            '原本內容': '免斷詞',
         }
 		error_messages = {
-            'origin_title': {
+            '原本標題': {
                 'max_length': ("This writer's name is too long."),
             },
         }
 		widgets = {
-			'category': Select(choices=分類),
+			'分類': Select(choices=分類),
 		}
 		
 class 改國語斷詞表格(ModelForm):
 	class Meta:
 		model = Article
-		fields = ['origin_title', 'title', 'origin_content', 'content']
+		fields = ['原本標題', '斷詞標題', '原本內容', '斷詞內容']
 		widgets = {
-			'origin_content': Textarea(attrs={'class':'文章','wrap': 'off'}),
-			'content': Textarea(attrs={'class':'文章','wrap': 'off'}),
+			'原本內容': Textarea(attrs={'class':'文章','wrap': 'off'}),
+			'斷詞內容': Textarea(attrs={'class':'文章','wrap': 'off'}),
 		}
 
 
 class 改閩南語翻譯表格(ModelForm):
 	class Meta:
 		model = Article
-		fields = ['title', 'title_translation', 'content', 'JiaoLuo']
+		fields = ['斷詞標題', '教羅標題', '斷詞內容', '教羅內容']
 		widgets = {
-			'content': Textarea(attrs={'class':'文章','wrap': 'off'}),
-			'JiaoLuo': Textarea(attrs={'class':'文章','wrap': 'off'}),
+			'斷詞內容': Textarea(attrs={'class':'文章','wrap': 'off'}),
+			'教羅內容': Textarea(attrs={'class':'文章','wrap': 'off'}),
 		}

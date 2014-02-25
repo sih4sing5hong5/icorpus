@@ -1,10 +1,10 @@
 {% extends "article/框.html" %}
 
-{% block content %}
+{% block 斷詞內容 %}
 	{% if article %}
 	<table>
 		<tr>
-			<td>{{ article.category }}</td>
+			<td>{{ article.分類 }}</td>
 			<!-- <td colspan="2">{{ article.date }}</td> -->
 			<td>{{ article.date }}</td>
 		</tr>
@@ -14,14 +14,14 @@
 			<td>閩南語翻譯</td>
 		</tr>
 		<tr>
-			<!-- <td>{{ article.origin_title }}</td> -->
-			<td>{{ article.title }}</td>
-			<td>{{ article.title_translation }}</td>
+			<!-- <td>{{ article.原本標題 }}</td> -->
+			<td>{{ article.斷詞標題 }}</td>
+			<td>{{ article.教羅標題 }}</td>
 		</tr>
 		<tr>
-			<!-- <td>{{ article.origin_content|linebreaksbr }}</td> -->
-			<td>{{ article.content|linebreaksbr }}</td>
-			<td>{{ article.JiaoLuo|linebreaksbr }} {{ article.TaiLuo|linebreaksbr }} {{ article.HaoLuo|linebreaksbr }}</td>
+			<!-- <td>{{ article.原本內容|linebreaksbr }}</td> -->
+			<td>{{ article.斷詞內容|linebreaksbr }}</td>
+			<td>{{ article.教羅內容|linebreaksbr }} {{ article.TaiLuo|linebreaksbr }} {{ article.HaoLuo|linebreaksbr }}</td>
 		</tr>
 	</table>
 	{% else %}
