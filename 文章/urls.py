@@ -5,6 +5,9 @@ from 文章 import views
 urlpatterns = patterns('',
     # ex: /polls/
     url(r'^$', views.index, name='首頁'),
+    url(r'^文章/$', views.index),
+    url(r'^登入', views.登入, name='登入'),
+    url(r'^登出$', views.登出, name='登出'),
     # ex: /polls/5/
     url(r'^(?P<pk>\d+)/看文章/$', views.看文章.as_view(), name='看文章'),
     url(r'^(?P<pk>\d+)/全改/$', views.全改, name='全改'),

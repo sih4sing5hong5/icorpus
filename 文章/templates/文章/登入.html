@@ -1,0 +1,11 @@
+{% extends "文章/框.html" %}
+
+{% block 斷詞內容 %}
+	<form action="登入" method="post">
+		{% csrf_token %}
+		<input type="text" name='username' value="chhsueh" />
+		<input type="password" name='password' value="d" />
+				
+		<input type="submit" value="確定" />
+	</form>
+{% endblock %}
