@@ -57,20 +57,24 @@ class insert_文章:
 	def tsu2_li2(self):
 		tsu1_liau7 = sorted(self.tok8_tsu1_liau7(), key = lambda tsu1:tsu1[1])
 		cnt = 1
-		推算的時間 = date(2008, 11, 6)
+		一開始= date(2008, 11, 6)
+		推算的時間 =一開始
 		日期=self.看日期()
 # 		print(日期[:5])
-		for 資料 in tsu1_liau7[:10]:
+		for 資料 in tsu1_liau7[:]:
 			if 資料[0]:
 	# 			print(now)
 				查檔名的時間=self.揣時間(日期, 資料[4])
 	# 			print(資料[4],查檔名的時間,資料[2],推算的時間)
 				if 查檔名的時間!=None:
-					if 查檔名的時間>date(2008,11,1):
-						if 推算的時間>查檔名的時間:# or 推算的時間>查檔名的時間-relativedelta(months=-12):
-							推算的時間=查檔名的時間
-				else:
-					print(資料[4],'查無時間','編輯時間',資料[2],'推算的時間',推算的時間)
+					if 查檔名的時間>一開始:
+# 						if 推算的時間>查檔名的時間+relativedelta(months=-6):# or 推算的時間>查檔名的時間-relativedelta(months=-12):
+						推算的時間=查檔名的時間
+# 				else:
+# 					print(資料[4],'查無時間','編輯時間',資料[2],'推算的時間',推算的時間)
+				if 資料[4]<推算的時間:
+					推算的時間=資料[4]
+				print('編輯',資料[2],'推算',推算的時間,'查檔名',查檔名的時間,資料[4],)
 				if 資料[4] == '鬼辣椒辣度破百萬男子嗆到送醫':
 					推算的時間 = date(2009, 3, 15)
 					
@@ -93,8 +97,6 @@ class insert_文章:
 		  # 2008-11-6 7 7
 		  # 鬼辣椒 辣度 破百萬 男子 嗆到 送醫 2009-3-15
 	def 揣時間(self,日期,標題):
-# 		if '炒鱔魚' in 標題:
-# 			return date(2013,9,10)
 		上長=0
 		揀著=None
 		上少=len(標題)/2
