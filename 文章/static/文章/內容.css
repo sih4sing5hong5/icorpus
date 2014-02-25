@@ -25,9 +25,9 @@ table.資料 td.行號 textarea.文章 {
 	width: 2em;
 }
 
-table.資料 input
+table.資料 input[type=text]
 {
-	width: 100%;
+	width: 95%;
 }
 
 div.文章
