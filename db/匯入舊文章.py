@@ -5,6 +5,7 @@ from datetime import date
 from dateutil.relativedelta import relativedelta
 from db.lcs import lcs_len
 
+sdfap#莫匯入資料
 class insert_文章:
 	def tok8_tsu1_liau7(self):
 		tsu1_liau7 = []
@@ -120,4 +121,3 @@ class insert_文章:
 
 icorpus_文章 = insert_文章()
 icorpus_文章.tsu2_li2()
-sdfap
