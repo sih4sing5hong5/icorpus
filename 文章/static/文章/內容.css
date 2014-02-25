@@ -28,6 +28,7 @@ table.資料 td.行號 textarea.文章 {
 table.資料 input[type=text]
 {
 	width: 95%;
+	font-size: 85%;
 }
 
 div.文章
@@ -57,5 +58,5 @@ textarea.文章
 }
 textarea,input
 {
-	font-size: inherit;
+	font-size: 100%;
 }
