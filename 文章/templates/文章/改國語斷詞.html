@@ -11,6 +11,7 @@
 				</td>
 				<td class='行號'></td>
 				<td class='正爿'>華語斷詞
+					<input type="submit" value="確定" />
 				</td>
 			</tr>
 			<tr>
@@ -23,7 +24,6 @@
 				<td>{% if 文章.斷詞標題.errors %}
 					<p>{{ 文章.斷詞標題.errors }}</p>{% endif %} 
 					{{ 文章.斷詞標題 }}
-					<input type="submit" value="確定" />
 				</td>
 			</tr>
 			<tr>
