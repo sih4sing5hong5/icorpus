@@ -30,6 +30,11 @@ textarea.文章 {
 	background-image: url('橫線.jpg');
 	/*background-size: 150%;*/
 	background-repeat: repeat;
-	font-size: 150%;
-	line-height: 30px;
+	/*100%=>20px*/
+	font-size: 100%;
+	line-height: 50px;
+}
+textarea,input
+{
+	font-size: inherit;
 }

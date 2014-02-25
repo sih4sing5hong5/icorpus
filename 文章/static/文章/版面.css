@@ -1,6 +1,10 @@
+body
+{
+	font-size: 250%;
+}
 span.英文
 {
-	font-size: 28px;
+	font-size: 150%;
 	color: #fc693f;
 }
 div.揣文章
