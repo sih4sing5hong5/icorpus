@@ -14,12 +14,12 @@ from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 
 def index(request):
-	最新文章 = 何澤政文章.objects.order_by('-pk')
+	揣著文章 = 何澤政文章.objects.order_by('-pk')
 # 	output = ', '.join([p.title for p in latest_poll_list])
 # 	return HttpResponse(output)
 	template = loader.get_template('文章/全部文章.html')
 	context = RequestContext(request, {
-		'最新文章': 最新文章,
+		'揣著文章': 揣著文章,
 		'有登入無':request.user.is_authenticated(),
 	})
 	return HttpResponse(template.render(context))
