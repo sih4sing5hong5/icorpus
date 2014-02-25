@@ -62,7 +62,7 @@ class insert_article:
 		推算的時間 = date(2008, 11, 6)
 		日期=self.看日期()
 # 		print(日期[:5])
-		for 資料 in tsu1_liau7[:]:
+		for 資料 in tsu1_liau7[:10]:
 			if 資料[0]:
 	# 			print(now)
 				查檔名的時間=self.揣時間(日期, 資料[4])
@@ -74,6 +74,16 @@ class insert_article:
 					print(資料[4],'查無時間','編輯時間',資料[2],'推算的時間',推算的時間)
 				if 資料[4] == '鬼辣椒辣度破百萬男子嗆到送醫':
 					推算的時間 = date(2009, 3, 15)
+					
+				Article.objects.create(
+					date=資料[2],
+					category=資料[3],
+					origin_title=資料[4],
+					origin_content=資料[5],
+					title=資料[6],
+					content=資料[7],
+					title_translation=資料[8],
+					JiaoLuo=資料[9],)
 				cnt += 1
 				if cnt == 2:
 					cnt = 0
