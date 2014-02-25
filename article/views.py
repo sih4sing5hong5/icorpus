@@ -3,14 +3,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import RequestContext, loader
 from django.views import generic
-from article.models import Article
+from article.models import 何澤政文章
 from article.文章表格 import 文章全部表格
 from article.文章表格 import 加新文章表格, 改國語斷詞表格, 改閩南語翻譯表格
 from django.shortcuts import get_object_or_404
 from django.http.response import HttpResponseRedirect
 
 def index(request):
-	latest_poll_list = Article.objects.order_by('-date')[:50]
+	latest_poll_list = 何澤政文章.objects.order_by('-pk')[:50]
 # 	output = ', '.join([p.title for p in latest_poll_list])
 # 	return HttpResponse(output)
 	template = loader.get_template('article/全部文章.html')
@@ -20,7 +20,7 @@ def index(request):
 	return HttpResponse(template.render(context))
 
 class 看文章(generic.DetailView):
-	model = Article
+	model = 何澤政文章
 	template_name = 'article/看文章.html'
 
 def 加新文章(request):
@@ -46,13 +46,13 @@ def 改閩南語翻譯(request, pk):
 	
 def 編輯(request, pk, 網址, 表格):
 	if request.method == 'POST':  # If the form has been submitted...
-		article = Article.objects.get(pk=pk)
+		article = 何澤政文章.objects.get(pk=pk)
 		form = 表格(request.POST, instance=article)
 		if form.is_valid():  # All validation rules pass
 			form.save()
 			return HttpResponseRedirect('/article/')  # Redirect after POST
 	else:
-		article = Article.objects.get(pk=pk)
+		article = 何澤政文章.objects.get(pk=pk)
 		form = 表格(instance=article)
 	
 	return render(request, 網址, {
@@ -60,6 +60,6 @@ def 編輯(request, pk, 網址, 表格):
 	})
 # 無法度用form＠＠
 class EditView(generic.DetailView):
-	model = Article
+	model = 何澤政文章
 	form_class = 文章全部表格
 	template_name = 'article/改.html'

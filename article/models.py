@@ -1,7 +1,8 @@
 from django.db import models
 
-class Article(models.Model):
-	date = models.DateField(auto_now_add=True)
+class 何澤政文章(models.Model):
+	頭一擺翻譯時間 = models.DateField(auto_now_add=True)
+	上尾修改時間 = models.DateField(auto_now=True)
 	分類 = models.CharField(max_length=100)
 	原本標題 = models.CharField(max_length=255)
 	原本內容 = models.TextField()

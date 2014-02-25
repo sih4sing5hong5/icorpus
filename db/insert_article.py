@@ -1,6 +1,6 @@
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
-from article.models import Article
+from article.models import 何澤政文章
 from datetime import date
 from dateutil.relativedelta import relativedelta
 from db.lcs import lcs_len
@@ -35,8 +35,6 @@ class insert_article:
 						教羅內容 = list[9]
 		# 					TongYong=list[10],
 						HaoLuo = l4[0]
-		# 				print(教羅內容)
-		# 				print(list)
 						si7_教羅內容 = True
 						if 教羅內容.strip() == '':
 							if TaiLuo.strip() == '' and HaoLuo.strip() == '':
@@ -68,15 +66,17 @@ class insert_article:
 				查檔名的時間=self.揣時間(日期, 資料[4])
 	# 			print(資料[4],查檔名的時間,資料[2],推算的時間)
 				if 查檔名的時間!=None:
-					if 推算的時間>查檔名的時間 or 推算的時間>查檔名的時間-relativedelta(months=-12):
-						推算的時間=查檔名的時間
+					if 查檔名的時間>date(2008,11,1):
+						if 推算的時間>查檔名的時間:# or 推算的時間>查檔名的時間-relativedelta(months=-12):
+							推算的時間=查檔名的時間
 				else:
 					print(資料[4],'查無時間','編輯時間',資料[2],'推算的時間',推算的時間)
 				if 資料[4] == '鬼辣椒辣度破百萬男子嗆到送醫':
 					推算的時間 = date(2009, 3, 15)
 					
-				Article.objects.create(
-					date=資料[2],
+				何澤政文章.objects.create(
+					頭一擺翻譯時間=推算的時間,
+					上尾修改時間=資料[2],
 					分類=資料[3],
 					原本標題=資料[4],
 					原本內容=資料[5],

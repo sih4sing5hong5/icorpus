@@ -1,12 +1,13 @@
 {% extends "article/框.html" %}
 
 {% block 斷詞內容 %}
-	{% if article %}
+	{% if 何澤政文章 %}
 	<table>
 		<tr>
-			<td>{{ article.分類 }}</td>
+			<td>{{ 何澤政文章.分類 }}</td>
 			<!-- <td colspan="2">{{ article.date }}</td> -->
-			<td>{{ article.date }}</td>
+			<td>頭一擺翻譯時間：{{ 何澤政文章.頭一擺翻譯時間|date:"Y-m-d" }} ｜
+			上尾修改時間：{{ 何澤政文章.上尾修改時間|date:"Y-m-d" }}</td>
 		</tr>
 		<tr>
 			<!-- <td>國語原文</td> -->
@@ -15,16 +16,16 @@
 		</tr>
 		<tr>
 			<!-- <td>{{ article.原本標題 }}</td> -->
-			<td>{{ article.斷詞標題 }}</td>
-			<td>{{ article.教羅標題 }}</td>
+			<td>{{ 何澤政文章.斷詞標題 }}</td>
+			<td>{{ 何澤政文章.教羅標題 }}</td>
 		</tr>
 		<tr>
 			<!-- <td>{{ article.原本內容|linebreaksbr }}</td> -->
-			<td>{{ article.斷詞內容|linebreaksbr }}</td>
-			<td>{{ article.教羅內容|linebreaksbr }} {{ article.TaiLuo|linebreaksbr }} {{ article.HaoLuo|linebreaksbr }}</td>
+			<td>{{ 何澤政文章.斷詞內容|linebreaksbr }}</td>
+			<td>{{ 何澤政文章.教羅內容|linebreaksbr }}</td>
 		</tr>
 	</table>
 	{% else %}
-	<p>No article are available.</p>
+	<p>無文章</p>
 	{% endif %}
 {% endblock %}
