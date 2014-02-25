@@ -26,6 +26,13 @@
 					 | <a href="{% url '登入' %}">登入</a>
 					{% endif %}
 				</span>
+				<div class='揣文章'>
+					<form action="{% url '揣文章' %}" method="post">
+						{% csrf_token %}
+						<input type="text" name='揣' value="" />
+						<input type="submit" value="揣" />
+					</form>
+				</div>
             {% endblock %}
         </div>
 	<br/>

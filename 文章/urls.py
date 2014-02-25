@@ -16,6 +16,7 @@ urlpatterns = patterns('',
     url(r'^(?P<pk>\d+)/改國語斷詞/$', views.改國語斷詞, name='改國語斷詞'),
     url(r'^(?P<pk>\d+)/改閩南語翻譯/$', views.改閩南語翻譯, name='改閩南語翻譯'),
     
+    url(r'^揣文章$', views.揣文章, name='揣文章'),
 #     # ex: /polls/5/vote/
 #     url(r'^(?P<poll_id>\d+)/$', views.detail, name='detail'),
 #     url(r'^(?P<pk>\d+)/editclass/$', views.EditView.as_view(), name='editClass'),

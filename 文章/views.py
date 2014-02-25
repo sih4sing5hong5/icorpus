@@ -8,10 +8,11 @@ from 文章.文章表格 import 文章全部表格
 from 文章.文章表格 import 加新文章表格, 改國語斷詞表格, 改閩南語翻譯表格
 from django.shortcuts import get_object_or_404
 from django.http.response import HttpResponseRedirect
-from django.contrib.auth import authenticate, login,logout
+from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
+from django.db.models import Q
 
 def index(request):
 	揣著文章 = 何澤政文章.objects.order_by('-pk')
@@ -23,6 +24,29 @@ def index(request):
 		'有登入無':request.user.is_authenticated(),
 	})
 	return HttpResponse(template.render(context))
+
+def 揣文章(request):
+	try:
+		字串=request.POST['揣']
+	except:
+		字串=''
+	揣著文章 = 何澤政文章.objects.filter(
+		Q(原本標題__contains=字串)|
+		Q(原本內容__contains=字串)|
+		Q(斷詞標題__contains=字串)|
+		Q(斷詞內容__contains=字串)|
+		Q(教羅標題__contains=字串)|
+		Q(教羅內容__contains=字串)
+		).order_by('-pk')
+# 	output = ', '.join([p.title for p in latest_poll_list])
+# 	return HttpResponse(output)
+	template = loader.get_template('文章/全部文章.html')
+	context = RequestContext(request, {
+		'揣著文章': 揣著文章,
+		'有登入無':request.user.is_authenticated(),
+	})
+	return HttpResponse(template.render(context))
+
 
 # class 登入物件(object):
 # 
@@ -43,7 +67,7 @@ def 加新文章(request):
 			文章表格.save()
 			return redirect('首頁')  # Redirect after POST
 	else:
-		文章表格=加新文章表格()
+		文章表格 = 加新文章表格()
 	return render(request, '文章/新文章.html', {
 		'文章': 文章表格,
 	})
