@@ -1,7 +1,9 @@
 {% extends "文章/框.html" %}
 
 {% block 斷詞內容 %}
-	<a href="{% url '加新文章' %}">加新文章</a>
+	{% if 有登入無 %}
+		<a href="{% url '加新文章' %}">加新文章</a>
+	{% endif %}
 	{% if latest_poll_list %}
 	    <table>
 	    {% for poll in latest_poll_list %}

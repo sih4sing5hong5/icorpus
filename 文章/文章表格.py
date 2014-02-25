@@ -50,8 +50,8 @@ class 改國語斷詞表格(ModelForm):
 		model = 何澤政文章
 		fields = ['原本標題', '斷詞標題', '原本內容', '斷詞內容']
 		widgets = {
-			'原本內容': Textarea(attrs={'class':'文章','wrap': 'off'}),
-			'斷詞內容': Textarea(attrs={'class':'文章','wrap': 'off'}),
+			'原本內容': Textarea(attrs={'class':'文章 橫線','wrap': 'off'}),
+			'斷詞內容': Textarea(attrs={'class':'文章 橫線','wrap': 'off'}),
 		}
 
 
@@ -60,6 +60,6 @@ class 改閩南語翻譯表格(ModelForm):
 		model = 何澤政文章
 		fields = ['斷詞標題', '教羅標題', '斷詞內容', '教羅內容']
 		widgets = {
-			'斷詞內容': Textarea(attrs={'class':'文章','wrap': 'off'}),
-			'教羅內容': Textarea(attrs={'class':'文章','wrap': 'off'}),
+			'斷詞內容': Textarea(attrs={'class':'文章 橫線','wrap': 'off'}),
+			'教羅內容': Textarea(attrs={'class':'文章 橫線','wrap': 'off'}),
 		}

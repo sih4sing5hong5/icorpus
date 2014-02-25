@@ -31,9 +31,9 @@ textarea.文章
 	  white-space: nowrap;
 }
 
-textarea.文章
+.橫線
 {
-	background-image:url('橫條.jpg');
+	background-image:url('橫線.jpg');
 	background-repeat:repeat;
 	line-height:20px;
 }
