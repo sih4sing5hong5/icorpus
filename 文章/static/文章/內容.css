@@ -25,6 +25,11 @@ table.資料 td.行號 textarea.文章 {
 	width: 2em;
 }
 
+table.資料 input
+{
+	width: 100%;
+}
+
 div.文章
 {
 	overflow-x: auto;
