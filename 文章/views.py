@@ -27,15 +27,15 @@ def index(request):
 
 def 揣文章(request):
 	try:
-		字串=request.POST['揣']
+		字串 = request.POST['揣']
 	except:
-		字串=''
+		字串 = ''
 	揣著文章 = 何澤政文章.objects.filter(
-		Q(原本標題__contains=字串)|
-		Q(原本內容__contains=字串)|
-		Q(斷詞標題__contains=字串)|
-		Q(斷詞內容__contains=字串)|
-		Q(教羅標題__contains=字串)|
+		Q(原本標題__contains=字串) | 
+		Q(原本內容__contains=字串) | 
+		Q(斷詞標題__contains=字串) | 
+		Q(斷詞內容__contains=字串) | 
+		Q(教羅標題__contains=字串) | 
 		Q(教羅內容__contains=字串)
 		).order_by('-pk')
 # 	output = ', '.join([p.title for p in latest_poll_list])
@@ -48,16 +48,25 @@ def 揣文章(request):
 	return HttpResponse(template.render(context))
 
 
+def 看文章(request,pk):
+	揣著文章 = 何澤政文章.objects.get(pk=pk)
+# 	output = ', '.join([p.title for p in latest_poll_list])
+# 	return HttpResponse(output)
+	template = loader.get_template('文章/看文章.html')
+	context = RequestContext(request, {
+		'何澤政文章': 揣著文章,
+		'有登入無':request.user.is_authenticated(),
+	})
+	return HttpResponse(template.render(context))
 # class 登入物件(object):
-# 
 #     @method_decorator(login_required)
 #     def dispatch(self, *args, **kwargs):
 #         return super(登入物件, self).dispatch(*args, **kwargs)
 
-class 看文章(generic.DetailView):
-# class 看文章(登入物件,generic.DetailView):
-	model = 何澤政文章
-	template_name = '文章/看文章.html'
+# class 看文章(generic.DetailView):
+## class 看文章(登入物件,generic.DetailView):
+# 	model = 何澤政文章
+# 	template_name = '文章/看文章.html'
 
 @login_required(login_url='/登入/')
 def 加新文章(request):
@@ -88,7 +97,9 @@ def 編輯(request, pk, 網址, 表格):
 		form = 表格(request.POST, instance=文章)
 		if form.is_valid():  # All validation rules pass
 			form.save()
-			return redirect('首頁')  # Redirect after POST
+			if 網址=='文章/改閩南語翻譯.html':
+				return redirect('看文章', pk=pk)
+			return redirect('首頁')
 	else:
 		文章 = 何澤政文章.objects.get(pk=pk)
 		form = 表格(instance=文章)
