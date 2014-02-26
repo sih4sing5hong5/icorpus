@@ -43,6 +43,7 @@ class 加新文章表格(ModelForm):
         }
 		widgets = {
 			'分類': Select(choices=分類),
+			'原本內容': Textarea(attrs={'class':'橫線','cols':'60'}),
 		}
 		
 class 改國語斷詞表格(ModelForm):

@@ -3,17 +3,29 @@
 {% block 斷詞內容 %}
 	{% if 文章 %}
 		<form action="" method="post">{% csrf_token %}
-		{{ 文章.as_p }}
-		<!-- 
+		<table class="資料">
+		<!-- {{ 文章.as_p }}-->
+		
 	    {% for 這馬 in 文章 %}
-	        <div class="fieldWrapper">
-	            {{ 這馬.errors }}
-	            {{ 這馬.label_tag }}: {{ 這馬 }}
-	            {% if 這馬.errors %}<p>{{ 這馬.errors }}</p></div>{% endif %}
-	        </div>
+            {% if 這馬.errors %}
+				<tr><td>
+	           		{{ 這馬.errors }}
+	   			</td></tr>
+			{% endif %}
+			<tr><td>
+            {{ 這馬.label_tag }}
+            {% if 這馬.help_text %}
+            	（{{ 這馬.help_text }}）
+            {% endif %}
+   			</td></tr>
+			<tr><td>
+            {{ 這馬 }}
+   			</td></tr>
 	    {% endfor %}
-	    --->
-		<input type="submit" value="Submit" />
+		<tr><td>
+			<input type="submit" value="確定" />
+ 		</td></tr>
+ 		</table>
 		</form>
 	{% else %}
 	    <p>No 文章 are available.</p>
