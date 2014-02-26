@@ -1,6 +1,12 @@
-table.資料 {
+table.資料
+{
 	width: 100%;
 	font-size: 133%;
+}
+
+table.資料 td
+{
+	vertical-align: top;
 }
 
 table.資料 td.倒爿 {
@@ -19,7 +25,21 @@ table.資料 td.行號 textarea.文章 {
 	width: 2em;
 }
 
-textarea.文章 {
+table.資料 input[type=text]
+{
+	width: 95%;
+	font-size: 85%;
+}
+
+div.文章
+{
+	overflow-x: auto;
+	overflow-y: auto;
+	white-space: nowrap;
+}
+
+textarea.文章
+{
 	overflow-x: scroll;
 	overflow-y: hidden;
 	width: 100%;
@@ -27,7 +47,8 @@ textarea.文章 {
 	white-space: nowrap;
 }
 
-.橫線 {
+.橫線 
+{
 	background-image: url('橫線.jpg');
 	/*background-size: 150%;*/
 	background-repeat: repeat;
@@ -37,5 +58,5 @@ textarea.文章 {
 }
 textarea,input
 {
-	font-size: inherit;
+	font-size: 100%;
 }
