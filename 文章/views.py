@@ -15,7 +15,7 @@ from django.utils.decorators import method_decorator
 from django.db.models import Q
 
 def index(request):
-	揣著文章 = 何澤政文章.objects.order_by('-pk')[:10]
+	揣著文章 = 何澤政文章.objects.order_by('-pk')
 # 	output = ', '.join([p.title for p in latest_poll_list])
 # 	return HttpResponse(output)
 	template = loader.get_template('文章/全部文章.html')
