@@ -7,7 +7,9 @@ from 文章.產生翻譯用平行語料 import 產生翻譯用平行語料
 產生翻譯用平行語料()
 '''
 class 產生翻譯用平行語料():
-    def __init__(self):
+    def __init__(self, 國語檔名='國語檔案.txt', 教羅檔名='教羅檔案.txt'):
+        國語檔案 = open(國語檔名, 'w')
+        教羅檔案 = open(教羅檔名, 'w')
     	for 文章 in 何澤政文章.objects.order_by('pk'):
     		國語 = 文章.斷詞標題 + '\n' + 文章.斷詞內容
     		教羅 = 文章.教羅標題 + '\n' + 文章.教羅內容
@@ -18,8 +20,8 @@ class 產生翻譯用平行語料():
     		if len(文章國語) != len(文章音標):
     			print('國語佮音標對無齊：{0}'.format(文章.pk))
     			continue
-#     		print(國語,)
-#     		print(教羅,)
+     		print(國語, 國語檔案)
+     		print(教羅, 教羅檔案)
 
-if __name__=='__main__':
+if __name__ == '__main__':
 	產生翻譯用平行語料()
