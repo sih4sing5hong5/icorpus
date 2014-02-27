@@ -15,7 +15,7 @@ from django.utils.decorators import method_decorator
 from django.db.models import Q
 
 def index(request):
-	揣著文章 = 何澤政文章.objects.order_by('-pk')
+	揣著文章 = 何澤政文章.objects.order_by('-pk')[:10]
 # 	output = ', '.join([p.title for p in latest_poll_list])
 # 	return HttpResponse(output)
 	template = loader.get_template('文章/全部文章.html')
@@ -48,7 +48,7 @@ def 揣文章(request):
 	return HttpResponse(template.render(context))
 
 
-def 看文章(request,pk):
+def 看文章(request, pk):
 	揣著文章 = 何澤政文章.objects.get(pk=pk)
 # 	output = ', '.join([p.title for p in latest_poll_list])
 # 	return HttpResponse(output)
@@ -64,7 +64,7 @@ def 看文章(request,pk):
 #         return super(登入物件, self).dispatch(*args, **kwargs)
 
 # class 看文章(generic.DetailView):
-## class 看文章(登入物件,generic.DetailView):
+# # class 看文章(登入物件,generic.DetailView):
 # 	model = 何澤政文章
 # 	template_name = '文章/看文章.html'
 
@@ -73,8 +73,9 @@ def 加新文章(request):
 	if request.method == 'POST':  # If the form has been submitted...
 		文章表格 = 加新文章表格(request.POST)  # A form bound to the POST data
 		if 文章表格.is_valid():
-			文章表格.save()
-			return redirect('首頁')  # Redirect after POST
+			文章 = 文章表格.save()
+			文章.自動斷詞()
+			return redirect('改國語斷詞', pk=文章.pk)
 	else:
 		文章表格 = 加新文章表格()
 	return render(request, '文章/新文章.html', {
@@ -96,8 +97,13 @@ def 編輯(request, pk, 網址, 表格):
 		文章 = 何澤政文章.objects.get(pk=pk)
 		form = 表格(request.POST, instance=文章)
 		if form.is_valid():  # All validation rules pass
-			form.save()
-			if 網址=='文章/改閩南語翻譯.html':
+			文章 = form.save()
+			if 網址 == '文章/新文章.html':
+				文章.自動斷詞()
+				return redirect('改國語斷詞', pk=pk)
+			if 網址 == '文章/改國語斷詞.html':
+				return redirect('改閩南語翻譯', pk=pk)
+			if 網址 == '文章/改閩南語翻譯.html':
 				return redirect('看文章', pk=pk)
 			return redirect('首頁')
 	else:
