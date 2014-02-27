@@ -6,11 +6,11 @@ import json
 def 轉網頁(物件):
     return HttpResponse(json.dumps(物件))
 
-def 全部題號(request):
-    題號 = []
+def 全部文號(request):
+    文號 = []
     for 文章 in 何澤政文章.objects.order_by('pk'):
-        題號.append(文章.pk)
-    return 轉網頁(題號)
+        文號.append(文章.pk)
+    return 轉網頁(文號)
 
 def 揣翻譯對應(request, pk):
     文章 = 何澤政文章.objects.get(pk=pk)
