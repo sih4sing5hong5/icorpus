@@ -3,6 +3,7 @@ from 文章.models import 何澤政文章
 from 臺灣言語工具.斷詞標音.中研院工具.官方斷詞工具 import 官方斷詞工具
 from 臺灣言語工具.斷詞標音.中研院工具.斷詞結構化工具 import 斷詞結構化工具
 from 臺灣言語工具.字詞組集句章.解析整理工具.物件譀鏡 import 物件譀鏡
+import time
 
 '''
 使用方法
@@ -36,6 +37,7 @@ class 產生翻譯用平行語料():
 					except Exception as 問題:
 						print('「{}」出現「{}」'
 							.format(一逝國語,問題))
+						time.sleep(10)
 				if len(斷詞結果) != 1:
 					raise RuntimeError("斷詞怪怪")
 				章物件 = self.__斷詞結構化.斷詞轉章物件(斷詞結果)
