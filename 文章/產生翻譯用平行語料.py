@@ -7,7 +7,7 @@ from 文章.產生翻譯用平行語料 import 產生翻譯用平行語料
 產生翻譯用平行語料()
 '''
 class 產生翻譯用平行語料():
-	def __init__(self, 國語檔名='國語檔案.txt', 教羅檔名='教羅檔案.txt'):
+	def __init__(self, 國語檔名='臺華.國語檔案.txt', 教羅檔名='臺華.教羅檔案.txt'):
 		國語檔案 = open(國語檔名, 'w')
 		教羅檔案 = open(教羅檔名, 'w')
 		for 文章 in 何澤政文章.objects.order_by('pk'):
