@@ -28,7 +28,14 @@ class 產生翻譯用平行語料():
 				print('國語佮音標對無齊：{0}'.format(文章.pk))
 				continue
 			for 一逝國語 in 文章國語:
-				斷詞結果 = self.__斷詞工具.斷詞(一逝國語)
+				愛斷詞=True
+				while 愛斷詞:
+					try:
+						斷詞結果 = self.__斷詞工具.斷詞(一逝國語)
+						愛斷詞=False
+					except Exception as 問題:
+						print('「{}」出現「{}」'
+							.format(一逝國語,問題))
 				if len(斷詞結果) != 1:
 					raise RuntimeError("斷詞怪怪")
 				章物件 = self.__斷詞結構化.斷詞轉章物件(斷詞結果)
