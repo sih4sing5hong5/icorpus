@@ -1,7 +1,7 @@
 {% extends "文章/框.html" %}
 
 {% block 斷詞內容 %}
-	<form action="登入" method="post">
+	<form action="{% url '登入' %}" method="post">
 		{% csrf_token %}
 		帳號：<input type="text" name='username' value="" /><br/>
 		密碼：<input type="password" name='password' value="" /><br/>
