@@ -1,5 +1,6 @@
 from django.db import models
 from 文章.斷詞翻譯 import 斷詞
+from 文章.斷詞翻譯 import 翻譯
 
 class 何澤政文章(models.Model):
 	頭一擺翻譯時間 = models.DateField(auto_now_add=True)
@@ -34,6 +35,19 @@ class 何澤政文章(models.Model):
 		if self.斷詞內容=='':
 			try:
 				self.斷詞內容=斷詞(self.原本內容)
+				self.save()
+			except:
+				pass
+	def 自動翻譯(self):
+		if self.教羅標題=='':
+			try:
+				self.教羅標題=翻譯(self.斷詞標題)
+				self.save()
+			except:
+				pass
+		if self.教羅內容=='':
+			try:
+				self.教羅內容=翻譯(self.斷詞內容)
 				self.save()
 			except:
 				pass

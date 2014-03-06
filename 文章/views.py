@@ -102,6 +102,7 @@ def 編輯(request, pk, 網址, 表格):
 				文章.自動斷詞()
 				return redirect('改國語斷詞', pk=pk)
 			if 網址 == '文章/改國語斷詞.html':
+				文章.自動翻譯()
 				return redirect('改閩南語翻譯', pk=pk)
 			if 網址 == '文章/改閩南語翻譯.html':
 				return redirect('看文章', pk=pk)
