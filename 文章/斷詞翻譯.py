@@ -20,8 +20,9 @@ def 斷詞(語句):
 def 翻譯(文章):
     一句一句翻譯 = []
     for 一句 in 文章.split('\n'):
-        一句一句翻譯.append(__用戶端.翻譯(一句.strip())['text']\
-          .replace('  ', ' ').replace('  ', ' ').replace('|UNK|UNK|UNK',' '))
+        提去翻譯的句=' '.join(一句.strip().split())
+        一句一句翻譯.append(__用戶端.翻譯(提去翻譯的句)['text']\
+          .replace('|UNK|UNK|UNK','').replace('  ', ' ').replace('  ', ' '))
     return '\n'.join(一句一句翻譯)
 
 if __name__ == '__main__':
