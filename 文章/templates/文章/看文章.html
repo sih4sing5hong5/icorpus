@@ -4,8 +4,10 @@
 	{% if 何澤政文章 %}
 	<table class="資料">
 		<tr>
+			<td></td>
 			<td>{{ 何澤政文章.分類 }}</td>
 			<!-- <td colspan="2">{{ 文章.date }}</td> -->
+			<td></td>
 			<td>頭一擺翻譯時間：{{ 何澤政文章.頭一擺翻譯時間|date:"Y-m-d" }}
 			｜ 上尾修改時間：{{ 何澤政文章.上尾修改時間|date:"Y-m-d" }}
 			{% if 有登入無 %}
@@ -15,17 +17,27 @@
 		</tr>
 		<tr>
 			<!-- <td>華語原文</td> -->
+			<td></td>
 			<th>華語斷詞</th>
+			<td></td>
 			<th>臺語翻譯</th>
 		</tr>
 		<tr>
 			<!-- <td>{{ 文章.原本標題 }}</td> -->
+			<td></td>
 			<td>{{ 何澤政文章.斷詞標題 }}</td>
+			<td></td>
 			<td>{{ 何澤政文章.教羅標題 }}</td>
 		</tr>
 		<tr>
 			<!-- <td>{{ 文章.原本內容|linebreaksbr }}</td> -->
+			<td class='行號'>
+				{% include '文章/行號.html' %}
+			</td>
 			<td><div class="文章 橫線">{{ 何澤政文章.斷詞內容|linebreaksbr }}</div></td>
+			<td class='行號'>
+				{% include '文章/行號.html' %}
+			</td>
 			<td><div class="文章 橫線">{{ 何澤政文章.教羅內容|linebreaksbr }}</div></td>
 		</tr>
 	</table>
