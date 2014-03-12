@@ -4,7 +4,7 @@ from 文章 import views
 from 文章 import 轉出
 
 urlpatterns = patterns('',
-	# ex: /polls/
+	url(r'^全部文章$', views.全部文章, name='全部文章'),
 	url(r'^登入/$', views.登入, name='登入'),
 	url(r'^登出/$', views.登出, name='登出'),
 	# ex: /polls/5/

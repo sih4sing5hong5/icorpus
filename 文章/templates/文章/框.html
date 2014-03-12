@@ -20,6 +20,7 @@
             {% block nav-global %}
 				<span class="英文">iCorpus</span>
 				<span>華語臺語雙語語料庫系統 | <a href="{% url '首頁' %}">轉頭頁</a>
+					| <a href="{% url '全部文章' %}">全部文章</a>
 					{% if 有登入無 %}
 					 | <a href="{% url '登出' %}">登出</a>
 					{% else %}
