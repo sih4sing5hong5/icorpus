@@ -7,7 +7,7 @@ urlpatterns = patterns('',
 	url(r'^全部文章$', views.全部文章, name='全部文章'),
 	url(r'^登入/$', views.登入, name='登入'),
 	url(r'^登出/$', views.登出, name='登出'),
-	# ex: /polls/5/
+
 	url(r'^(?P<pk>\d+)/看文章/$', views.看文章, name='看文章'),
 	url(r'^(?P<pk>\d+)/全改/$', views.全改, name='全改'),
 	url(r'^加新文章/$', views.加新文章, name='加新文章'),
@@ -16,6 +16,8 @@ urlpatterns = patterns('',
 	url(r'^(?P<pk>\d+)/改閩南語翻譯/$', views.改閩南語翻譯, name='改閩南語翻譯'),
 	
 	url(r'^揣文章$', views.揣文章, name='揣文章'),
+	
+	url(r'^線頂斷詞翻譯$', views.線頂斷詞翻譯.as_view(), name='線頂斷詞翻譯'),
 	
     url(r'^全部文號$', 轉出.全部文號, name='全部文號'),
     url(r'^(?P<pk>\d+)/揣翻譯對應$', 轉出.揣翻譯對應, name='揣翻譯對應'),

@@ -1,0 +1,10 @@
+{% extends "文章/框.html" %}
+
+{% block 斷詞內容 %}
+	<form action="{% url '線頂斷詞翻譯' %}" method="post">{% csrf_token %}
+	<textarea name='文章' wrap='off' cols="80" rows='10'>{{ 文章 }}</textarea>
+	<br/>
+	<input type="submit" name='確定' value="斷詞" />
+	<input type="submit" name='確定' value="翻譯" />
+	</form>
+{% endblock %}

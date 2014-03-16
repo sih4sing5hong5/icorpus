@@ -13,6 +13,9 @@ from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.db.models import Q
+from django.views.generic.base import View
+from 文章.斷詞翻譯 import 斷詞
+from 文章.斷詞翻譯 import 翻譯
 
 def index(request):
 	揣著文章 = 何澤政文章.objects.order_by('-pk')
@@ -142,9 +145,25 @@ def 登入(request):
 def 登出(request):
 	logout(request)
 	return redirect('首頁')
-    # Redirect to a success page.
-# 無法度用form＠＠
-class EditView(generic.DetailView):
-	model = 何澤政文章
-	form_class = 文章全部表格
-	template_name = '文章/改.html'
+
+class 線頂斷詞翻譯(View):
+	def get(self, request):
+		template = loader.get_template('文章/線頂斷詞翻譯.html')
+		context = RequestContext(request, {
+			'文章': '',
+			'有登入無':request.user.is_authenticated(),
+		})
+		return HttpResponse(template.render(context))
+	def post(self, request):
+		確定 = request.POST['確定']
+		文章 = request.POST['文章']
+		if 確定 == '斷詞':
+			文章 = 斷詞(文章)
+		elif 確定 == '翻譯':
+			文章 = 翻譯(文章)
+		template = loader.get_template('文章/線頂斷詞翻譯.html')
+		context = RequestContext(request, {
+			'文章': 文章,
+			'有登入無':request.user.is_authenticated(),
+		})
+		return HttpResponse(template.render(context))
