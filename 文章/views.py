@@ -128,6 +128,7 @@ def 編輯(request, pk, 網址, 表格):
 	return render(request, 網址, {
 		'文章': form,
 		'有登入無':request.user.is_authenticated(),
+		'文章編號':pk,
 	})
 	
 

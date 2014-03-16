@@ -2,6 +2,7 @@
 
 {% block 斷詞內容 %}
 	{% if 文章 %}
+		{% include '文章/編輯的目錄.html' %}
 		<form action="." method="post">{% csrf_token %}
 		<table class="資料">
 			<tr>
