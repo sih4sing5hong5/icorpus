@@ -158,10 +158,13 @@ class 線頂斷詞翻譯(View):
 	def post(self, request):
 		確定 = request.POST['確定']
 		文章 = request.POST['文章']
-		if 確定 == '斷詞':
-			文章 = 斷詞(文章)
-		elif 確定 == '翻譯':
-			文章 = 翻譯(文章)
+		try:
+			if 確定 == '斷詞':
+				文章 = 斷詞(文章)
+			elif 確定 == '翻譯':
+				文章 = 翻譯(文章)
+		except:
+			pass
 		template = loader.get_template('文章/線頂斷詞翻譯.html')
 		context = RequestContext(request, {
 			'文章': 文章,
