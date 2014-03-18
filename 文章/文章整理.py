@@ -8,6 +8,7 @@ class 文章整理:
 			正常空白的文章.append(self.轉語句空白(一逝))
 		return 正常空白的文章
 	def 轉語句空白(self, 一逝):
+		一逝=一逝.replace('，',' ， ').replace('。',' 。 ').replace('！',' ！ ')
 		處理掉空白無仝佮重複 = ' '.join(一逝.split()).strip()
 		連字符加的空白 = 處理掉空白無仝佮重複.replace('- ', ' ').replace(' -', '-')
 		return 連字符加的空白
