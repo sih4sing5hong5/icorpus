@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset='utf-8'/>
-    <title>{% block 斷詞標題 %}華語臺語雙語語料庫系統{% endblock %}</title>
+    <title>{% block 斷詞標題 %}臺華平行新聞語料庫{% endblock %}</title>
     {% block extrahead %}{% endblock %}
     {% load staticfiles %}
 	<link rel="stylesheet" type="text/css" href="{% static '文章/版面.css' %}" />
@@ -20,7 +20,7 @@
         <div id="menu">
             {% block nav-global %}
 				<span class="英文">iCorpus</span>
-				<span>華語臺語雙語語料庫系統 | <a href="{% url '首頁' %}">轉頭頁</a>
+				<span>臺華平行新聞語料庫 | <a href="{% url '首頁' %}">轉頭頁</a>
 					| <a href="{% url '全部文章' %}">全部文章</a>
 					| <a href="{% url '線頂斷詞翻譯' %}">線頂斷詞翻譯</a>
 					{% if 有登入無 %}
@@ -28,6 +28,7 @@
 					{% else %}
 					 | <a href="{% url '登入' %}">登入</a>
 					{% endif %}
+					| <a href="https://bitbucket.org/billy1341/icorpus">網站程式碼</a>
 				</span>
 				<div class='揣文章'>
 					<form action="{% url '揣文章' %}" method="post">
