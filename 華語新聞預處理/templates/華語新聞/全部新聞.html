@@ -1,0 +1,19 @@
+{% extends "文章/框.html" %}
+
+{% block 斷詞內容 %}
+	<h2>會使用的新聞<h2>
+	<ul>
+	{% for 新聞 in 會使用的新聞   %}
+	 	<li><a href="{% url '看新聞' 新聞.pk %}">{{ 新聞.斷詞標題 }}</a></li>
+	{% endfor %}
+	</ul>
+	<h2>用過的新聞<h2>
+	<ul>
+	{% for 新聞 in 用過的新聞   %}
+	 	<li>
+	 		<a href="{% url '看新聞' 新聞.pk %}">{{ 新聞.斷詞標題 }}</a>
+	 		{{ 新聞.狀態 }}
+	 	</li>
+	{% endfor %}
+	</ul>
+{% endblock %}

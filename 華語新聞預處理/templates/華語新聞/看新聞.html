@@ -1,0 +1,13 @@
+{% extends "文章/框.html" %}
+
+{% block 斷詞內容 %}
+		<form action="" method="post">{% csrf_token %}
+		 {{ 新聞.斷詞標題 }}<br/>
+		 {{ 新聞.斷詞內容 }}
+		</form>
+		
+		{% for 狀態 in 其他狀態 %}
+	 		<a href="{% url '設定新聞狀態' 新聞.pk 狀態 %}">{{ 狀態 }}</a>
+		{% endfor %}
+		
+{% endblock %}

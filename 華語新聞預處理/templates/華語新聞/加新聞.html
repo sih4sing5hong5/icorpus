@@ -1,0 +1,8 @@
+{% extends "文章/框.html" %}
+
+{% block 斷詞內容 %}
+		<form action="" method="post">{% csrf_token %}
+		 {{ 新聞表格.as_p }}
+		 <input type='submit'>
+		</form>
+{% endblock %}
