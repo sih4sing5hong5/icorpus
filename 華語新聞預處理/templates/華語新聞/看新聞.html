@@ -3,7 +3,7 @@
 {% block 斷詞內容 %}
 		<form action="" method="post">{% csrf_token %}
 		 {{ 新聞.斷詞標題 }}<br/>
-		 {{ 新聞.斷詞內容 }}
+		 {{ 新聞.斷詞內容|linebreaks }}
 		</form>
 		
 		{% for 狀態 in 其他狀態 %}
