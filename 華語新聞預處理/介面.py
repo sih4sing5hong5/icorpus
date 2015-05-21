@@ -4,6 +4,7 @@ from django.shortcuts import redirect, render
 
 
 from 華語新聞預處理.models import 華語新聞
+from 文章.斷詞翻譯 import 斷詞
 
 def 全部新聞(request):
 	return render(request, '華語新聞/全部新聞.html', {
@@ -15,6 +16,16 @@ def 加新聞(request):
 	if request.method == 'POST':  # If the form has been submitted...
 		新聞表格 = 華語新聞表格(request.POST)  # A form bound to the POST data
 		if 新聞表格.is_valid():
+			if 新聞表格.斷詞標題 == '':
+				try:
+					新聞表格.斷詞標題 = 斷詞(新聞表格)
+				except:
+					pass
+			if 新聞表格.斷詞內容 == '':
+				try:
+					新聞表格.斷詞內容 = 斷詞(新聞表格.原本內容)
+				except:
+					pass
 			新聞表格.save()
 			return redirect('新聞首頁')
 	else:
