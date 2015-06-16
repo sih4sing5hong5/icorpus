@@ -57,3 +57,5 @@ docs/_build/
 target/
 
 /.settings
+*模型
+/venv
