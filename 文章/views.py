@@ -2,16 +2,12 @@ from django.shortcuts import render
 
 from django.http import HttpResponse
 from django.template import RequestContext, loader
-from django.views import generic
 from 文章.models import 何澤政文章
 from 文章.文章表格 import 文章全部表格
 from 文章.文章表格 import 加新文章表格, 改國語斷詞表格, 改閩南語翻譯表格
-from django.shortcuts import get_object_or_404
-from django.http.response import HttpResponseRedirect
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import redirect
 from django.contrib.auth.decorators import login_required
-from django.utils.decorators import method_decorator
 from django.db.models import Q
 from django.views.generic.base import View
 from 文章.斷詞翻譯 import 斷詞
@@ -41,16 +37,23 @@ def 全部文章(request):
 
 def 揣文章(request):
 	try:
-		字串 = request.POST['揣']
+		字串 = request.POST['揣'].strip()
 	except:
 		字串 = ''
+	無減號字串=字串.replace('-','')
 	揣著文章 = 何澤政文章.objects.filter(
 		Q(原本標題__contains=字串) | 
 		Q(原本內容__contains=字串) | 
 		Q(斷詞標題__contains=字串) | 
 		Q(斷詞內容__contains=字串) | 
 		Q(教羅標題__contains=字串) | 
-		Q(教羅內容__contains=字串)
+		Q(教羅內容__contains=字串) |
+		Q(原本標題__contains=無減號字串) | 
+		Q(原本內容__contains=無減號字串) | 
+		Q(斷詞標題__contains=無減號字串) | 
+		Q(斷詞內容__contains=無減號字串) | 
+		Q(教羅標題__contains=無減號字串) | 
+		Q(教羅內容__contains=無減號字串)
 		).order_by('-pk')
 # 	output = ', '.join([p.title for p in latest_poll_list])
 # 	return HttpResponse(output)
