@@ -14,15 +14,21 @@
 
 開的時間，前後加起來不只四小時
 
-## 授權
+## 語料授權
 ![創用 CC 授權條款](https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png)
-本著作[係採用創用 CC 姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 授權條款](http://creativecommons.org/licenses/by-nc-sa/4.0/)授權.
+
+本著作[係採用創用 CC 姓名標示-非商業性-相同方式分享 4.0 國際 (CC BY-NC-SA 4.0) 授權條款](http://creativecommons.org/licenses/by-nc-sa/4.0/)授權。
+
 授權人：中央研究院 資訊科學研究所 陳孟彰研究員
 
 ### 語料
-會當到[網站](http://icorpus.iis.sinica.edu.tw/)看翻譯的結果，嘛會當掠規个網站的[json](https://github.com/sih4sing5hong5/icorpus/blob/master/icorpus.json)
+會當到[網站](http://icorpus.iis.sinica.edu.tw/)看翻譯的結果，嘛會當掠規个網站的[json](https://github.com/sih4sing5hong5/icorpus/blob/master/icorpus.json)。
 
-## 安裝
+## 程式授權
+程式部份用[MIT授權](https://github.com/sih4sing5hong5/icorpus/blob/master/LICENSE)。
+
+
+### 安裝
 ```bash
 virtualenv --python=python3 venv
 . venv/bin/activate
