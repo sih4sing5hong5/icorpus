@@ -1,0 +1,15 @@
+sudo: false
+dist: trusty
+language: python
+python:
+- '3.5'
+env:
+  matrix:
+  - TOX_ENV=yaml台華對齊
+install:
+- pip install tox
+branches:
+  only:
+  - master
+script:
+- tox -e $TOX_ENV
