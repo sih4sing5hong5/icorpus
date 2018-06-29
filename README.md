@@ -1,8 +1,9 @@
-# 臺華新聞語料庫
+# 台華新聞語料庫
+[![Build Status](https://travis-ci.org/sih4sing5hong5/icorpus.svg?branch=master)](https://travis-ci.org/sih4sing5hong5/icorpus)
 
 中研院資訊所陳孟彰老師的計劃，檔案是`icorpus.json`。自2008-11-06開始到2016-02-15結束，收集3266篇新聞，攏總83544句。算標點符號，台語504037詞、1030671字，華語501202詞、1028218字。
 
-計劃後，閣有人修改，佇`icorpus.yaml`。
+計劃結束後，若有錯誤修改，囥佇`icorpus.yaml`。
 
 ## Frank何澤政的處理方法
 1. 先揣適當的新聞
